@@ -1,0 +1,31 @@
+# Setup
+/control/saveHistory
+#
+#
+########################################
+#
+# define scoring mesh
+#
+/score/create/boxMesh boxMesh_1
+#
+/score/mesh/boxSize 2 2 0.01. mm
+/score/mesh/nBin 500 500 1
+/score/mesh/translate/xyz 0. 0. 280. cm
+#
+/score/quantity/nOfStep nOfStepGamma
+/score/filter/particle gammaFilter gamma
+#
+/score/close
+#
+########################################
+#
+/vis/disable
+/control/verbose 2
+/run/verbose 1
+#
+########################################
+/run/beamOn 1000000
+########################################
+#
+# Dump scorers to a file in code
+#

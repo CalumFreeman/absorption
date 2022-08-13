@@ -1,0 +1,10 @@
+/gps/ene/type Mono
+/gps/ene/mono 15 keV
+/gps/particle gamma
+/gps/pos/type Beam
+/gps/pos/shape Circle
+/gps/pos/radius 1.7 mm
+/gps/pos/centre 0 0. -75 cm
+/gps/ang/type iso
+/gps/ang/maxtheta 0 mrad
+/gps/ang/rot1 -1 0 0

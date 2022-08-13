@@ -1,0 +1,33 @@
+# (Edit the next line to choose another graphic system)
+/vis/open OGL 720x900-0+0
+#
+# define particle source
+/control/execute gps.in
+#
+# initialize run
+#
+# draw scene
+/vis/drawVolume
+#
+# set view angle etc
+/vis/viewer/set/targetPoint 0.0 0.0 0.0 cm
+/vis/viewer/set/viewpointThetaPhi 0. 0.
+/vis/viewer/zoom 6.0
+#
+#####################################################################
+# IDK past this point
+#####################################################################
+# for drawing the tracks
+/vis/scene/add/trajectories smooth
+/vis/modeling/trajectories/create/drawByCharge
+/vis/modeling/trajectories/drawByCharge-0/default/setDrawStepPts true
+/vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 1
+#
+# Not sure the next two lines are needed
+#/vis/modeling/trajectories/create/drawByParticleID
+#/vis/modeling/trajectories/drawByParticleID-0/default/setDrawStepPts true
+# To superimpose all of the events from a given run:
+/vis/scene/endOfEventAction accumulate
+# Re-establish auto refreshing and verbosity:
+/vis/viewer/set/autoRefresh true
+/vis/verbose warnings
