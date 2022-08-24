@@ -10,6 +10,8 @@ plot_dir = "./build/test/"
 if len(sys.argv) > 1:
     plot_dir = sys.argv[1]+"/"
 
+water_beta = 2.15696279E-14
+CH_beta = 4.84226548E-10
 
 a.box_plot(
     data_directory=plot_dir,
@@ -19,7 +21,7 @@ a.box_plot(
     box_half_height_m=0.001/2,
     box_half_width_m=0.001/2,
     box_half_depth_m=0.005/2,
-    box_beta=4.84226548E-10,
+    box_beta=water_beta,
     box_delta=1.10211784E-06,
     show_lineout=True,
     show=True,

@@ -1,7 +1,7 @@
 # Purpose
 This exists as an example, to check the absorption coefficients are correct. 
 
-The code raytraces a beam of x-rays through a plastic target, giving some absorption, this can then be compared against data from CXRO's xray database (https://henke.lbl.gov/optical_constants/), to see if it's correct.
+The code raytraces a beam of x-rays through a target, giving some absorption, this can then be compared against data from CXRO's xray database (https://henke.lbl.gov/optical_constants/), to see if it's correct.
 
 # Requirements:
 
