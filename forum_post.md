@@ -9,6 +9,7 @@ Does anyone have ideas as to why this might be?
 
 Further details:
 The testing setup is a series of slices, of equal dimensions, each with increasing density(so different absorption) being backlit by a flat (columnated) source (using /gps), with mono energetic photons initially at 15keV (later tests tried different energies). A schematic is shown:
+![Schematic](https://raw.githubusercontent.com/CalumFreeman/absorption/master/images/Schematic.png)
 
 As I'm a new user, I can't show more images, the images are given in the github which contains the geant4 code that generated the images:
 https://github.com/CalumFreeman/absorption
@@ -31,6 +32,9 @@ beta = mu*float(wavelength_m)/(4 * np.pi * float(thickness_m))
 ```
 
 This can then be plotted against the `beta` from cxro to show there is a linear relationship, with a coefficient which is energy and material dependent. In the github, there are graphs for CH_15keV, CH_20keV, water_15keV, each of which have different coefficients (0.51, 0.62 and 1.08 respectively). For CH, the coefficients were linear with energy (so 25keV is 0.72).
+![CH_15keV_beta_fit](https://raw.githubusercontent.com/CalumFreeman/absorption/master/images/CH_15keV_beta_fit.png)
+![CH_20keV_beta_fit](https://raw.githubusercontent.com/CalumFreeman/absorption/master/images/CH_20keV_beta_fit.png)
+![water_15keV_beta_fit](https://raw.githubusercontent.com/CalumFreeman/absorption/master/images/water_15keV_beta_fit.png)
 
 Thanks for any help!
 
