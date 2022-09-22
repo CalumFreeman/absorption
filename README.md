@@ -1,3 +1,10 @@
+# Forum post
+
+A forum post giving more details is given at:
+https://github.com/CalumFreeman/absorption/blob/master/forum_post.md
+
+And posted on the geant4 forums (without the images since I wasn't allowed to put them in)
+
 # Purpose
 This exists as an example, to check the absorption coefficients are correct. 
 
