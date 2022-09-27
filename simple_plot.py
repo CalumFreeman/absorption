@@ -39,7 +39,7 @@ def get_rindex(formula='H2O', density=-1, energy=15000):
     return delta, beta
 
 
-
+cxro_cache = '/home/calum/Documents/PhD/Code/v2GREENER/build/cxro_cache/'
 plot_dir = "./build/test_10mrays/"
 if len(sys.argv) > 1:
     plot_dir = sys.argv[1] + "/"
@@ -49,6 +49,8 @@ if 'CH' in plot_dir:
     material = 'CH'
 elif 'water' in plot_dir:
     material = 'H2O'
+elif 'SiO2' in plot_dir:
+    material = 'SiO2'
 n = 15
 energy_eV = 15000
 halfx = 0.001
@@ -64,9 +66,9 @@ densities = None
 betas = None
 deltas = None
 name = '/'+material+'_'+str(energy_eV)+'_cxro_beta.npy'
-if exists(plot_dir+name):
+if exists(cxro_cache+name):
     print('loading saved data:')
-    data = np.load(plot_dir+name)
+    data = np.load(cxro_cache+name)
     densities = data[0]
     deltas = data[1]
     betas = data[2]
@@ -81,7 +83,7 @@ else:
         d, b = get_rindex(energy=energy_eV, formula=material, density=density)
         deltas.append(d)
         betas.append(b)
-    np.save(plot_dir+name, [densities, deltas, betas])
+    np.save(cxro_cache+name, [densities, deltas, betas])
 
 
 a.box_plot(data_directory=plot_dir,
