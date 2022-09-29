@@ -1,5 +1,5 @@
 /gps/ene/type Mono
-/gps/ene/mono 15 keV
+/gps/ene/mono 22 keV
 /gps/particle gamma
 /gps/pos/type Beam
 /gps/pos/shape Circle

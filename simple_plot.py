@@ -76,7 +76,13 @@ if exists(cxro_cache+name):
     print('betas:', betas)
     print('deltas:', betas)
 else:
-    densities = [(0.4+2*i/10.0) for i in range(n)]
+    # old config
+    start = 0.4
+    step = 0.2
+    # SiO2 config
+    start = 0.1
+    step = 0.1
+    densities = [(start+step*i) for i in range(n)]
     betas = []
     deltas = []
     for density in densities:
@@ -90,10 +96,12 @@ a.box_plot(data_directory=plot_dir,
            det_px=500,
            det_full_width=0.004,
            source_radius_m=0.0017,
+           nrays=10000000,
            box_half_height_m=0.0005,
            box_half_width_m=halfx,
            box_half_depth_m=0.0025,
            box_beta=betas,
+           box_rhos=densities,
            box_delta=deltas[0],
            energy_eV=energy_eV,
            box_n=n,

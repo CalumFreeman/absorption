@@ -90,6 +90,8 @@ G4Material* get_mat_at_rho(G4double density){
   G4Element* elO = new G4Element(name="Oxygen", symbol="O" , z= 8., a);
   a = 12.01*g/mole;
   G4Element* elC = new G4Element(name="Carbon", symbol="C" , z= 6., a);
+  a = 28.09*g/mole;
+  G4Element* elSi = new G4Element(name="Silicon", symbol="Si", z=14., a);
 
   G4Material* H2O = new G4Material(name="Water", density, ncomponents=2);
   H2O->AddElement(elH, natoms=2);
@@ -99,7 +101,11 @@ G4Material* get_mat_at_rho(G4double density){
   CH->AddElement(elH, natoms=1);
   CH->AddElement(elC, natoms=1);
 
-  return CH;
+  G4Material* SiO2 = new G4Material(name="Aerogel", density, ncomponents=2);
+  SiO2->AddElement(elSi, natoms=1);
+  SiO2->AddElement(elO , natoms=2);
+
+  return SiO2;
 }
 
 void make_step(int i, int n, G4LogicalVolume* worldLogical){
@@ -108,7 +114,10 @@ void make_step(int i, int n, G4LogicalVolume* worldLogical){
   G4LogicalVolume* capsuleLogical;
   G4Material* material;
 
-  G4double density = (0.4+2*i/10.0)*g/cm3;
+  G4double start = 0.1;
+  G4double step = 0.1;
+
+  G4double density = (start+step*i)*g/cm3;
   material = get_mat_at_rho(density);
 
   G4double halfx = 0.001;
